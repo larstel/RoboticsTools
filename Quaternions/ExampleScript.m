@@ -3,10 +3,11 @@
 clc
 clear all
 
+%% Initialization
+q1 = [2 4 -3 1]'; % 3 + 1i -2j + 1k
+q2 = [5 -2 1 -3]'; % 2 -1i + 2j + 3k
+
 %% QuaternionProduct
-% Initialization
-q1 = [3 1 -2 1]'; % 3 + 1i -2j + 1k
-q2 = [2 -1 2 3]'; % 2 -1i + 2j + 3k
 
 % Calculation with matrix
 quatProMa = QuaternionProductWithMatrixFunc(q1,q2)
@@ -36,3 +37,15 @@ qV = [.5 .5 .5]';
 
 % Calculation
 quatOp = QuaternionOperatorFunc(qV','k')
+
+%% QuaternionConjugate
+
+qCon = QuaternionConjugate(q1)
+
+%% QuaternionNorm
+
+qNor = QuaternionNorm(q1)
+
+%% QuaternionInvers
+
+qInv = QuaternionInversFunc(quatPro)

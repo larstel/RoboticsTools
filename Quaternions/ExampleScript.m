@@ -4,8 +4,8 @@ clc
 clear all
 
 %% Initialization
-q1 = [2 4 -3 1]'; % 3 + 1i -2j + 1k
-q2 = [5 -2 1 -3]'; % 2 -1i + 2j + 3k
+q1 = [sqrt(2)/2 sqrt(2)/2 0 0]'; % 3 + 1i -2j + 1k
+q2 = [0.92 0 0 0.38]'; % 2 -1i + 2j + 3k
 
 %% QuaternionProduct
 
@@ -32,11 +32,25 @@ invRotQuat = rotQuat'
 
 %% QuaternionOperator
 % Initialization
-format rat
-qV = [.5 .5 .5]';
+%format rat
+qV = [sqrt(3)/2 sqrt(3)/6 sqrt(3)/6 sqrt(3)/6]';
+
+rotAxe = 'custom'
+
+switch rotAxe
+    case 'i'
+        v = [1 0 0]';
+    case 'j'
+        v = [0 1 0]';
+    case 'k'
+        v = [0 0 1]';        
+    otherwise
+
+        v = [sqrt(3)/4 1/4 1/2]';
+end
 
 % Calculation
-quatOp = QuaternionOperatorFunc(qV','k')
+quatOp = QuaternionOperatorFunc(qV', v)
 
 %% QuaternionConjugate
 
